@@ -1,16 +1,16 @@
 import json
 import os
+import subprocess
 from pathlib import PurePath
 from zipfile import ZipFile
-import subprocess
-import pandas as pd
-from pyproj import Proj, transform
+
 from arcgis.features import FeatureSet
 
 # from shapely.geometry import Point
 from boxnotes2html import BoxNote
-from GitHub.HelperScripts import get_funcs
-from GitHub.HelperScripts import edit_funcs
+from pyproj import Proj, transform
+
+from GitHub.HelperScripts import edit_funcs, get_funcs
 
 
 def convert_box_note_to_markdown(boxnote_path):

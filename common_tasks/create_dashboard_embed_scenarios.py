@@ -44,15 +44,15 @@ def add_dashboard_sections_to_storymap(
 
 
 if __name__ == "__main__":
-    GIS_OBJ = MySecrets.get_agol_gis("QA_ENV", "DBQA_REGRESSION")
+    GIS_OBJ = MySecrets.get_agol_gis("DEV_ENV", "DBQA_REGRESSION")
 
     # GIS_OBJ = MySecrets.get_portal_gis(environment="MY_PORTAL", user="ENT_REGRESSION")
     dashboard_items = get_funcs.get_items_from_folder(
-        GIS_OBJ, "Sharing_Options", item_types=["Dashboard"]
+        GIS_OBJ, "Sharing_Options_Dashboards_Edge_Cases", item_types=["Dashboard"]
     )
-    build_name = "Beta II QAEXT Dashboards"
-    build_type = "4X_QA_GENERIC"
-    title = f"Shared to Everyone Dashboard in-depth Embed Scenarios with {build_name} urls {build_type}"
+    build_name = "4x Final DEVEXT Dashboards"
+    build_type = "4X_DEV_ORG"
+    title = f"Dashboard in-depth Embed Scenarios with {build_name} urls {build_type}"
     # url_params = AGOL_DICT["DEV_URL_PARAM"]
     storymap = JournalStoryMap(GIS_OBJ)
     storymap_obj = add_dashboard_sections_to_storymap(
