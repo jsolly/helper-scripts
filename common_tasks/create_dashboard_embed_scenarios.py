@@ -19,6 +19,9 @@ def add_dashboard_sections_to_storymap(
         "4X_DEV_ORG": f"{AGOL_DICT['DEV_ORG_ENV']}/apps/dashboards",
         "3X_DEV_ORG": f"{AGOL_DICT['DEV_ORG_ENV']}/apps/opsdashboard/index.html#",
         "4X_QA_GENERIC": f"{AGOL_DICT['QA_ENV']}/apps/dashboards",
+        "3X_QA_GENERIC": f"{AGOL_DICT['QA_ENV']}/apps/opsdashboard/index.html#",
+        "4X_QA_ORG": f"{AGOL_DICT['QA_ORG_ENV']}/apps/dashboards",
+        "3X_QA_ORG": f"{AGOL_DICT['QA_ORG_ENV']}/apps/opsdashboard/index.html#",
         "4X_PROD_GENERIC": f"{AGOL_DICT['PROD_ENV']}/apps/dashboards",
         "3X_PROD_GENERIC": f"{AGOL_DICT['PROD_ENV']}/apps/opsdashboard/index.html#",
         "4X_PROD_ORG": f"{AGOL_DICT['PROD_ORG_ENV']}/apps/dashboards",
@@ -28,11 +31,11 @@ def add_dashboard_sections_to_storymap(
     storymap_obj.add(
         title=title, content="Example Website", url_or_item="https://www.example.com",
     )
-    url_params = "" if not url_params else AGOL_DICT[url_params]
+    # url_params = "" if not url_params else AGOL_DICT[url_params] # Think about moving this logic into a seperate func
 
     for dashboard_item in dashboard_items:
-        parameter_seperator = "?" if "3X" in build_type else "#"
-        dashboard_url = f"https://{dashboard_url_dict[build_type]}/{dashboard_item.id}{parameter_seperator}{url_params}"
+        # parameter_seperator = "?" if "3X" in build_type else "#"
+        dashboard_url = f"https://{dashboard_url_dict[build_type]}/{dashboard_item.id}"
 
         storymap_obj.add(
             title=f"{dashboard_item.title} {build_name}",
@@ -44,14 +47,14 @@ def add_dashboard_sections_to_storymap(
 
 
 if __name__ == "__main__":
-    GIS_OBJ = MySecrets.get_agol_gis("DEV_ENV", "DBQA_REGRESSION")
+    GIS_OBJ = MySecrets.get_agol_gis("QA_ENV", "DBQA_REGRESSION")
 
     # GIS_OBJ = MySecrets.get_portal_gis(environment="MY_PORTAL", user="ENT_REGRESSION")
     dashboard_items = get_funcs.get_items_from_folder(
-        GIS_OBJ, "Sharing_Options_Dashboards_Edge_Cases", item_types=["Dashboard"]
+        GIS_OBJ, "Sharing_Options", item_types=["Dashboard"]
     )
-    build_name = "4x Final DEVEXT Dashboards"
-    build_type = "4X_DEV_ORG"
+    build_name = "3x QAEXT Dashboards"
+    build_type = "3X_QA_ORG"
     title = f"Dashboard in-depth Embed Scenarios with {build_name} urls {build_type}"
     # url_params = AGOL_DICT["DEV_URL_PARAM"]
     storymap = JournalStoryMap(GIS_OBJ)

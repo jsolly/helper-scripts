@@ -1,10 +1,10 @@
 from other.my_secrets import MySecrets
 
 GIS_1 = MySecrets.get_agol_gis(environment="PROD_ENV", user="DBQA_ADMIN")
-GIS_2 = MySecrets.get_agol_gis(environment="DEV_ENV", user="DBQA_REGRESSION")
+# GIS_2 = MySecrets.get_agol_gis(environment="DEV_ENV", user="DBQA_REGRESSION")
 # GIS_3 = MySecrets.get_agol_gis(environment="DEV_ENV", user="DBQA_ADMIN")
 # GIS_4 = MySecrets.get_agol_gis(environment="DEV_ENV", user="NITRO_ADMIN")
-# GIS_5 = MySecrets.get_agol_gis(environment="DEV_ENV", user="DBQA_JOHN")
+GIS_5 = MySecrets.get_agol_gis(environment="DEV_ENV", user="DBQA_JOHN")
 # GIS_6 = MySecrets.get_agol_gis(environment="DEV_ENV", user="DBQA_PUBLISHER")
 # GIS = MySecrets.get_agol_gis("DEV_ENV", "DBQA_AUTOMATION")
 # BUILT_IN_GIS = MySecrets.get_portal_gis(environment="BUILT-IN_ENV", user="CREATOR")
@@ -12,8 +12,8 @@ GIS_2 = MySecrets.get_agol_gis(environment="DEV_ENV", user="DBQA_REGRESSION")
 TARGET_FOLDER = "_Cloned"
 
 # Clone an item
-item = GIS_1.content.get("f2b7656d47594632aef8aa64d872da0e")
-GIS_2.content.clone_items(items=[item], folder=TARGET_FOLDER)
+item = GIS_1.content.get("f313df46ad554819b88282a1ecd1f4d1")
+GIS_5.content.clone_items(items=[item], folder=TARGET_FOLDER)
 
 # Clone a List of Items
 # itemids = [
