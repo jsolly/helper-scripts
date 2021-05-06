@@ -12,8 +12,8 @@ GIS_5 = MySecrets.get_agol_gis(environment="DEV_ENV", user="DBQA_JOHN")
 TARGET_FOLDER = "_Cloned"
 
 # Clone an item
-item = GIS_1.content.get("f313df46ad554819b88282a1ecd1f4d1")
-GIS_5.content.clone_items(items=[item], folder=TARGET_FOLDER)
+item = GIS_5.content.get("d2bdc990184a4a5fb6d3ef7316c7159a")
+GIS_1.content.clone_items(items=[item], folder=TARGET_FOLDER)
 
 # Clone a List of Items
 # itemids = [
